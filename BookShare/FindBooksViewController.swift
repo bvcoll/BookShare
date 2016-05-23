@@ -8,11 +8,11 @@
 
 import UIKit
 
-class FirstViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
+class FindBooksViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
     
-    // This array will need to be replaced with an API for pulling data from a server.
+    // This array will need to be replaced with an API for pulling data from our storage server.
     // Additional methods will be necessary to determine how much data should be pulled and what should be pulled.
-    var items: [String] = ["Testing", "This", "Table", "View"]
+    var localBooks: [String] = ["Testing", "This", "Table", "View"]
     
     @IBOutlet weak var tableView: UITableView!
     
@@ -30,7 +30,7 @@ class FirstViewController: UIViewController, UITableViewDelegate, UITableViewDat
     
     // Counts the number of items to be displayed in the table. Returns this value as an Int.
     func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return self.items.count
+        return self.localBooks.count
     }
     
     // Creates each individual cell in the table.
@@ -38,14 +38,14 @@ class FirstViewController: UIViewController, UITableViewDelegate, UITableViewDat
         
         let cell:UITableViewCell = self.tableView.dequeueReusableCellWithIdentifier("cell")! as UITableViewCell
         
-        cell.textLabel?.text = self.items[indexPath.row]
+        cell.textLabel?.text = self.localBooks[indexPath.row]
         
         return cell
     }
     
     // Handles selected cells. Currently needs to be implemented.
     func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
-        print("You selected cell #\(indexPath.row)!")
+        
     }
 
 
