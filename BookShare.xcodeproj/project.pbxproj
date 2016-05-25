@@ -15,6 +15,8 @@
 		993CB6EC1CF238A8008B2BAF /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 993CB6EA1CF238A8008B2BAF /* LaunchScreen.storyboard */; };
 		993CB6F71CF238A8008B2BAF /* BookShareTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 993CB6F61CF238A8008B2BAF /* BookShareTests.swift */; };
 		993CB7021CF238A8008B2BAF /* BookShareUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 993CB7011CF238A8008B2BAF /* BookShareUITests.swift */; };
+		993CB7101CF2DFDD008B2BAF /* Book.swift in Sources */ = {isa = PBXBuildFile; fileRef = 993CB70F1CF2DFDD008B2BAF /* Book.swift */; };
+		99FA75A01CF5497500B08B7C /* DetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 99FA759F1CF5497500B08B7C /* DetailViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -49,6 +51,8 @@
 		993CB6FD1CF238A8008B2BAF /* BookShareUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = BookShareUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		993CB7011CF238A8008B2BAF /* BookShareUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BookShareUITests.swift; sourceTree = "<group>"; };
 		993CB7031CF238A8008B2BAF /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		993CB70F1CF2DFDD008B2BAF /* Book.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Book.swift; sourceTree = "<group>"; };
+		99FA759F1CF5497500B08B7C /* DetailViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DetailViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -101,7 +105,9 @@
 			children = (
 				993CB6DF1CF238A8008B2BAF /* AppDelegate.swift */,
 				993CB6E11CF238A8008B2BAF /* FindBooksViewController.swift */,
+				99FA759F1CF5497500B08B7C /* DetailViewController.swift */,
 				993CB6E31CF238A8008B2BAF /* SellBooksViewController.swift */,
+				993CB70F1CF2DFDD008B2BAF /* Book.swift */,
 				993CB6E51CF238A8008B2BAF /* Main.storyboard */,
 				993CB6E81CF238A8008B2BAF /* Assets.xcassets */,
 				993CB6EA1CF238A8008B2BAF /* LaunchScreen.storyboard */,
@@ -259,7 +265,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				993CB7101CF2DFDD008B2BAF /* Book.swift in Sources */,
 				993CB6E41CF238A8008B2BAF /* SellBooksViewController.swift in Sources */,
+				99FA75A01CF5497500B08B7C /* DetailViewController.swift in Sources */,
 				993CB6E01CF238A8008B2BAF /* AppDelegate.swift in Sources */,
 				993CB6E21CF238A8008B2BAF /* FindBooksViewController.swift in Sources */,
 			);
@@ -488,6 +496,7 @@
 				993CB7081CF238A8008B2BAF /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		993CB7091CF238A8008B2BAF /* Build configuration list for PBXNativeTarget "BookShareTests" */ = {
 			isa = XCConfigurationList;
@@ -496,6 +505,7 @@
 				993CB70B1CF238A8008B2BAF /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		993CB70C1CF238A8008B2BAF /* Build configuration list for PBXNativeTarget "BookShareUITests" */ = {
 			isa = XCConfigurationList;
@@ -504,6 +514,7 @@
 				993CB70E1CF238A8008B2BAF /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};

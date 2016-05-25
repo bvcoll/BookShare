@@ -8,45 +8,49 @@
 
 import UIKit
 
-class FindBooksViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
+class FindBooksViewController: UITableViewController{
     
     // This array will need to be replaced with an API for pulling data from our storage server.
     // Additional methods will be necessary to determine how much data should be pulled and what should be pulled.
-    var localBooks: [String] = ["Testing", "This", "Table", "View"]
-    
-    @IBOutlet weak var tableView: UITableView!
+    var localBooks:[Book] = [Book]()
     
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
+        self.localBooks.append(Book(title: "Test", author: "TestAuthor", genre: "TestGenre", condition: "TestCondition"))
         
         self.tableView.registerClass(UITableViewCell.self, forCellReuseIdentifier: "cell")
     }
-
+    
+    override func numberOfSectionsInTableView(tableView: UITableView) -> Int {
+        return 1
+    }
+    
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
     
     // Counts the number of items to be displayed in the table. Returns this value as an Int.
-    func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+    override func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return self.localBooks.count
     }
     
     // Creates each individual cell in the table.
-    func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
+    override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         
-        let cell:UITableViewCell = self.tableView.dequeueReusableCellWithIdentifier("cell")! as UITableViewCell
+        let cell = tableView.dequeueReusableCellWithIdentifier("Cell", forIndexPath: indexPath)
         
-        cell.textLabel?.text = self.localBooks[indexPath.row]
+        let book = self.localBooks[indexPath.row]
+        cell.textLabel?.text = book.title
         
         return cell
     }
     
     // Handles selected cells. Currently needs to be implemented.
-    func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
+    override func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
         
     }
-
-
+    
+    
 }
