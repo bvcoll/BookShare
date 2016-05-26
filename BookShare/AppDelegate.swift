@@ -11,11 +11,26 @@ import UIKit
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
 
+    
     var window: UIWindow?
 
-
+    
     func application(application: UIApplication, didFinishLaunchingWithOptions launchOptions: [NSObject: AnyObject]?) -> Bool {
+        
         // Override point for customization after application launch.
+        let tabBarViewController = self.window!.rootViewController as! UITabBarController
+        let splitViewController = tabBarViewController.viewControllers?.first as! UISplitViewController
+        let leftNavController = splitViewController.viewControllers.first as! UINavigationController
+        let findBooksViewController = leftNavController.topViewController as! FindBooksViewController
+        let rightNavController = splitViewController.viewControllers.last as! UINavigationController
+        let detailViewController = rightNavController.topViewController as! DetailViewController
+        
+        let firstBook = findBooksViewController.localBooks.first
+        detailViewController.book = firstBook
+ 
+        findBooksViewController.delegate = detailViewController
+        detailViewController.navigationItem.leftItemsSupplementBackButton = true
+        detailViewController.navigationItem.leftBarButtonItem = splitViewController.displayModeButtonItem()
         return true
     }
 
@@ -40,7 +55,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     func applicationWillTerminate(application: UIApplication) {
         // Called when the application is about to terminate. Save data if appropriate. See also applicationDidEnterBackground:.
     }
-
+    
 
 }
 

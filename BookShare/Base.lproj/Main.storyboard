@@ -3,6 +3,7 @@
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10085"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
     </dependencies>
     <scenes>
         <!--Sell Books-->
@@ -21,13 +22,13 @@
                                 <rect key="frame" x="195" y="279" width="210" height="42"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <fontDescription key="fontDescription" name="Helvetica" family="Helvetica" pointSize="36"/>
-                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Loaded by SecondViewController" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="NDk-cv-Gan">
                                 <rect key="frame" x="193" y="329" width="215" height="17"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
                         </subviews>
@@ -57,23 +58,45 @@
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Testing Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="bRh-7u-Z2X">
-                                <rect key="frame" x="249" y="289" width="102" height="21"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Author" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ukB-9z-RlP">
+                                <rect key="frame" x="274" y="150" width="52" height="21"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Title" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="bRh-7u-Z2X">
+                                <rect key="frame" x="283" y="410" width="34" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Genre" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="WXw-kv-phi">
+                                <rect key="frame" x="277" y="289" width="47" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
+                            <constraint firstItem="WXw-kv-phi" firstAttribute="centerX" secondItem="J7b-lm-YFx" secondAttribute="centerX" id="HPc-Th-m0h"/>
+                            <constraint firstItem="ukB-9z-RlP" firstAttribute="top" secondItem="J7b-lm-YFx" secondAttribute="topMargin" constant="150" id="Pv7-OT-vQK"/>
                             <constraint firstItem="bRh-7u-Z2X" firstAttribute="centerX" secondItem="J7b-lm-YFx" secondAttribute="centerX" id="b7R-CE-fLG"/>
-                            <constraint firstItem="bRh-7u-Z2X" firstAttribute="centerY" secondItem="J7b-lm-YFx" secondAttribute="centerY" id="cWw-lY-89F"/>
+                            <constraint firstItem="bRh-7u-Z2X" firstAttribute="top" secondItem="WXw-kv-phi" secondAttribute="bottom" constant="100" id="eZn-9e-fSk"/>
+                            <constraint firstItem="ukB-9z-RlP" firstAttribute="centerX" secondItem="bRh-7u-Z2X" secondAttribute="centerX" id="jA0-hc-Wrs"/>
+                            <constraint firstItem="WXw-kv-phi" firstAttribute="centerY" secondItem="J7b-lm-YFx" secondAttribute="centerY" id="yah-2C-2ry"/>
                         </constraints>
                     </view>
+                    <navigationItem key="navigationItem" id="uUF-5d-3dw"/>
+                    <connections>
+                        <outlet property="authorLabel" destination="ukB-9z-RlP" id="I5S-ZQ-BOx"/>
+                        <outlet property="genreLabel" destination="WXw-kv-phi" id="0vN-xu-NMA"/>
+                        <outlet property="titleLabel" destination="bRh-7u-Z2X" id="tGh-P0-sKh"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="pri-6H-lsb" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1574" y="-57"/>
+            <point key="canvasLocation" x="2386" y="-57"/>
         </scene>
         <!--Root View Controller-->
         <scene sceneID="lH5-Sx-8aU">
@@ -95,7 +118,7 @@
                                             <rect key="frame" x="15" y="0.0" width="570" height="43"/>
                                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                             <fontDescription key="fontDescription" type="system" pointSize="16"/>
-                                            <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                            <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                             <nil key="highlightedColor"/>
                                         </label>
                                     </subviews>
@@ -136,7 +159,7 @@
                     <tabBarItem key="tabBarItem" title="Find Books" image="first" id="wnm-Kp-uBf"/>
                     <connections>
                         <segue destination="bQS-Sd-HLQ" kind="relationship" relationship="masterViewController" id="Tti-y3-MlQ"/>
-                        <segue destination="ZBG-Xg-3ec" kind="relationship" relationship="detailViewController" id="eKD-jN-YPG"/>
+                        <segue destination="fOV-Mp-KNj" kind="relationship" relationship="detailViewController" id="eKD-jN-YPG"/>
                     </connections>
                 </splitViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ewB-Um-gKI" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -161,6 +184,24 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="HuB-VB-40B" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="-22" y="-30"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="nhl-S1-PdI">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="fOV-Mp-KNj" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="KK6-xY-nna">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="ZBG-Xg-3ec" kind="relationship" relationship="rootViewController" id="3rh-zi-hlf"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="ErY-g9-tdh" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1574" y="-57"/>
         </scene>
     </scenes>
     <resources>

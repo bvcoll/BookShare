@@ -10,18 +10,39 @@ import UIKit
 
 class DetailViewController: UIViewController {
 
+    @IBOutlet weak var titleLabel: UILabel!
+    @IBOutlet weak var authorLabel: UILabel!
+    @IBOutlet weak var genreLabel: UILabel!
+    
+    
+    var book: Book! {
+        didSet (newBook) {
+            self.refreshUI()
+        }
+    }
+    
+
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        // Do any additional setup after loading the view.
+        refreshUI()
     }
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
     }
     
 
+    func refreshUI() {
+        if let book = book {
+            if let titleLabel = titleLabel, authorLabel = authorLabel {
+                titleLabel.text = book.title
+                authorLabel.text = book.author
+                genreLabel.text = book.genre
+            }
+        }
+    }
+    
     /*
     // MARK: - Navigation
 
@@ -32,4 +53,10 @@ class DetailViewController: UIViewController {
     }
     */
 
+}
+
+extension DetailViewController: BookSelectiondelegate {
+    func bookSelected(newBook: Book) {
+        book = newBook
+    }
 }
