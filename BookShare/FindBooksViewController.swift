@@ -34,6 +34,8 @@ class FindBooksViewController: UITableViewController{
         
         self.localBooks.append(Book(title: "Test", author: "TestAuthor", genre: "TestGenre", condition: "TestCondition"))
         self.localBooks.append(Book(title: "Second", author: "SecondAuthor", genre: "SecondGenre", condition: "Secondcondition"))
+        self.localBooks.append(Book(title: "Third", author: "ThirdAuthor", genre: "ThirdGenre", condition: "Secondcondition"))
+        self.localBooks.append(Book(title: "Fourth", author: "FourthAuthor", genre: "FourthGenre", condition: "Fourthcondition"))
         
         self.tableView.registerClass(UITableViewCell.self, forCellReuseIdentifier: "cell")
     }
@@ -71,8 +73,14 @@ class FindBooksViewController: UITableViewController{
     }
     
     // Handles selected cells.
+    
     override func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
-        let selectedBook = self.localBooks[indexPath.row]
+        var selectedBook = self.localBooks[indexPath.row]
+        
+        if searchController.active && searchController.searchBar.text != "" {
+            selectedBook = self.filteredLocalBooks[indexPath.row]
+        }
+        
         self.delegate?.bookSelected(selectedBook)
         
         if let detailViewController = self.delegate as? DetailViewController {
@@ -101,7 +109,7 @@ class FindBooksViewController: UITableViewController{
                 }
                 
                 let controller = (segue.destinationViewController as! UINavigationController).topViewController as! DetailViewController
-                controller.book = book
+                controller.detailBook = book
                 controller.navigationItem.leftBarButtonItem = splitViewController?.displayModeButtonItem()
                 controller.navigationItem.leftItemsSupplementBackButton = true
             }

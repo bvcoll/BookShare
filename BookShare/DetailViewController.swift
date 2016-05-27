@@ -15,7 +15,7 @@ class DetailViewController: UIViewController {
     @IBOutlet weak var genreLabel: UILabel!
     
     
-    var book: Book! {
+    var detailBook: Book? {
         didSet (newBook) {
             self.refreshUI()
         }
@@ -34,11 +34,11 @@ class DetailViewController: UIViewController {
     
 
     func refreshUI() {
-        if let book = book {
-            if let titleLabel = titleLabel, authorLabel = authorLabel {
-                titleLabel.text = book.title
-                authorLabel.text = book.author
-                genreLabel.text = book.genre
+        if let detailBook = detailBook {
+            if let titleLabel = titleLabel, authorLabel = authorLabel, genreLabel = genreLabel {
+                titleLabel.text = detailBook.title
+                authorLabel.text = detailBook.author
+                genreLabel.text = detailBook.genre
             }
         }
     }
@@ -57,6 +57,6 @@ class DetailViewController: UIViewController {
 
 extension DetailViewController: BookSelectiondelegate {
     func bookSelected(newBook: Book) {
-        book = newBook
+        detailBook = newBook
     }
 }

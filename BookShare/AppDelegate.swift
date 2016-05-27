@@ -26,7 +26,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         let detailViewController = rightNavController.topViewController as! DetailViewController
         
         let firstBook = findBooksViewController.localBooks.first
-        detailViewController.book = firstBook
+        detailViewController.detailBook = firstBook
  
         findBooksViewController.delegate = detailViewController
         detailViewController.navigationItem.leftItemsSupplementBackButton = true
