@@ -14,11 +14,17 @@ class Book: NSObject {
     let author:String
     let genre:String
     let condition:String
+    let cost:Double
     
-    init(title:String, author:String, genre:String, condition:String) {
+    init(title:String, author:String, genre:String, condition:String, cost:Double) {
         self.title = title
         self.author = author
         self.genre = genre
         self.condition = condition
+        self.cost = cost
+    }
+    
+    func getImage() -> UIImage? {
+        return UIImage(named: "First")
     }
 }

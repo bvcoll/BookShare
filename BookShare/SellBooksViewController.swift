@@ -8,7 +8,9 @@
 
 import UIKit
 
-class SellBooksViewController: UIViewController {
+class SellBooksViewController: UITableViewController {
+    
+    var myBooks:[Book] = sampleMyBooks
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -19,7 +21,23 @@ class SellBooksViewController: UIViewController {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
+    
+    override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
+        let cell = tableView.dequeueReusableCellWithIdentifier("Cell", forIndexPath: indexPath) as! BookCell
+        
+        let book = self.myBooks[indexPath.row]
+        cell.book = book
+        
+        return cell
+    }
 
-
+    override func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return myBooks.count
+    }
+    
+    override func numberOfSectionsInTableView(tableView: UITableView) -> Int {
+        return 1
+    }
+    
 }
 

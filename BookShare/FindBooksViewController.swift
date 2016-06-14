@@ -20,7 +20,7 @@ class FindBooksViewController: UITableViewController{
     
     // This array will need to be replaced with an API for pulling data from our storage server.
     // Additional methods will be necessary to determine how much data should be pulled and what should be pulled.
-    var localBooks:[Book] = [Book]()
+    var localBooks:[Book] = sampleLocalBooks
     var filteredLocalBooks:[Book] = [Book]()
     
     override func viewDidLoad() {
@@ -31,11 +31,6 @@ class FindBooksViewController: UITableViewController{
         definesPresentationContext = true
         tableView.tableHeaderView = searchController.searchBar
         
-        
-        self.localBooks.append(Book(title: "Test", author: "TestAuthor", genre: "TestGenre", condition: "TestCondition"))
-        self.localBooks.append(Book(title: "Second", author: "SecondAuthor", genre: "SecondGenre", condition: "Secondcondition"))
-        self.localBooks.append(Book(title: "Third", author: "ThirdAuthor", genre: "ThirdGenre", condition: "Secondcondition"))
-        self.localBooks.append(Book(title: "Fourth", author: "FourthAuthor", genre: "FourthGenre", condition: "Fourthcondition"))
         
         self.tableView.registerClass(UITableViewCell.self, forCellReuseIdentifier: "cell")
     }
@@ -69,11 +64,11 @@ class FindBooksViewController: UITableViewController{
         }
         
         cell.textLabel?.text = book.title
+        cell.detailTextLabel?.text = book.author
         return cell
     }
     
     // Handles selected cells.
-    
     override func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
         var selectedBook = self.localBooks[indexPath.row]
         
