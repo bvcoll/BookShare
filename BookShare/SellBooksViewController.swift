@@ -39,5 +39,11 @@ class SellBooksViewController: UITableViewController {
         return 1
     }
     
+    @IBAction func cancelToSellBooksViewController(segue: UIStoryboardSegue) {
+    }
+    
+    
+    @IBAction func saveNewBook(segue: UIStoryboardSegue) {
+    }
 }
 

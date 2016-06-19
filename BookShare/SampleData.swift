@@ -15,4 +15,7 @@ let sampleLocalBooks = [
 
 let sampleMyBooks = [
     Book(title: "MyBook", author: "MyBookAuthor", genre: "MyBookGenre", condition: "New", cost: 50),
-    Book(title: "MySecondBook", author: "SecondAuthor", genre: "SecondGenre", condition: "New", cost: 14.99)]
+    Book(title: "MySecondBook", author: "SecondAuthor", genre: "SecondGenre", condition: "New", cost: 14.99),
+    Book(title: "BookWithReallyReallyReallyReallyLongTitle", author: "Test", genre: "Test", condition: "New", cost: 9.99)]
+
+let pickerData = ["Fixed Cost", "Auction", "Auction with Limit"]

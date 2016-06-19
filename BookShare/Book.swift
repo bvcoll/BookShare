@@ -25,6 +25,6 @@ class Book: NSObject {
     }
     
     func getImage() -> UIImage? {
-        return UIImage(named: "First")
+        return UIImage(named: "first")
     }
 }
