@@ -13,8 +13,10 @@ class AddBookViewController: UITableViewController, UIPickerViewDelegate, UIPick
     var selectedMethod: String = ""
     
     @IBOutlet weak var titleSearchBar: UISearchBar!
-    
     @IBOutlet weak var methodPicker: UIPickerView!
+    @IBOutlet weak var firstValTextField: UITextField!
+    @IBOutlet weak var secondValTextField: UITextField!
+    
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -45,5 +47,20 @@ class AddBookViewController: UITableViewController, UIPickerViewDelegate, UIPick
     // Captures the selected item.
     func pickerView(pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
         selectedMethod = pickerData[row]
+        if selectedMethod == "Fixed Cost"{
+            firstValTextField.placeholder = "Price"
+        } else {
+            firstValTextField.placeholder = "Starting Price"
+        }
+        tableView.reloadSections(NSIndexSet(index: 2), withRowAnimation: UITableViewRowAnimation.None)
+    }
+    
+    // Determines if CASH VALUES should have one or two rows.
+    override func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        if (section == 2)&&(selectedMethod=="Auction with Limit") {
+            return 2
+        } else {
+            return 1
+        }
     }
 }
